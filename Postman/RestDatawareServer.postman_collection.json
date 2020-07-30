@@ -7,6 +7,18 @@
 	"item": [
 		{
 			"name": "Default",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6aa80b14-dcb9-4f66-bc13-261361e296eb",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -25,38 +37,406 @@
 			"response": []
 		},
 		{
-			"name": "Servertime",
+			"name": "HelloWorld",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "691ec016-36ff-4d80-bbd3-f44125aa09d9",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8085/servertime",
+					"raw": "http://localhost:8085/HelloWorld",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8085",
 					"path": [
-						"servertime"
+						"HelloWorld"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "HelloWorld",
+			"name": "ServerTime",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9f7f9407-79a1-48f9-9cd4-1aa4e8fb6e36",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8085/helloworld",
+					"raw": "http://localhost:8085/ServerTime",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8085",
 					"path": [
-						"helloworld"
+						"ServerTime"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EchoString",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "237687b8-aca6-4409-b113-4a68de6136c5",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/EchoString?string=Gleryston Matos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"EchoString"
+					],
+					"query": [
+						{
+							"key": "string",
+							"value": "Gleryston Matos"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReverseString",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e857cb6d-7266-4732-a40a-277d463d8131",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/ReverseString?string=GlerystonMatos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"ReverseString"
+					],
+					"query": [
+						{
+							"key": "string",
+							"value": "GlerystonMatos"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Soma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eeb8a2ad-c488-4c77-b8ca-0d1056c248ba",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/Soma?value01=10&value02=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"Soma"
+					],
+					"query": [
+						{
+							"key": "value01",
+							"value": "10"
+						},
+						{
+							"key": "value02",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fcf1f031-c3bb-4082-a5c5-49ff063e6a29",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"Usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b53f631d-50c0-48eb-887c-50024f2710a6",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Gleryston\",\r\n    \"senha\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"Usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a24c057-8200-4ce2-a1e7-2b227d5b6de9",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Gleryston\",\r\n    \"senha\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"Usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf984cc6-b820-4aa2-8d54-c2c4e61dee56",
+						"exec": [
+							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['resposta é um JSON válido'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['resposta não é um JSON válido'] = false;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/Usuario?nome=Gleryston",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"Usuario"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "Gleryston"
+						}
 					]
 				}
 			},

@@ -4,8 +4,8 @@ object frmServer: TfrmServer
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Server'
-  ClientHeight = 42
-  ClientWidth = 140
+  ClientHeight = 39
+  ClientWidth = 138
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

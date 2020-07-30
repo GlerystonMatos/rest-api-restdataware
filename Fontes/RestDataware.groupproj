@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9569E05F-D6EE-4230-814C-E848F33B7887}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RestDatawareServer.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RestDatawareServer">
+        <MSBuild Projects="RestDatawareServer.dproj"/>
+    </Target>
+    <Target Name="RestDatawareServer:Clean">
+        <MSBuild Projects="RestDatawareServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RestDatawareServer:Make">
+        <MSBuild Projects="RestDatawareServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RestDatawareServer"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RestDatawareServer:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RestDatawareServer:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
