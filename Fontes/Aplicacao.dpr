@@ -1,4 +1,4 @@
-program RestDatawareServer;
+program Aplicacao;
 
 uses
   Vcl.Forms,

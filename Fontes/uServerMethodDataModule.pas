@@ -4,15 +4,12 @@ interface
 
 uses
   System.Classes, UDWDatamodule, uDWAbout, uRESTDWServerEvents, uDWJSONObject,
-  JSON, System.SysUtils, System.StrUtils, uDWConsts;
+  JSON, System.SysUtils, uDWConsts;
 
 type
   TdmServerMethodDataModule = class(TServerMethodDataModule)
     DWServerEvents: TDWServerEvents;
-    procedure DWServerEventsEventsServerTimeReplyEvent(var Params: TDWParams; var Result: string);
-    procedure DWServerEventsEventsHelloWorldReplyEvent(var Params: TDWParams; var Result: string);
-    procedure DWServerEventsEventsEchoStringReplyEvent(var Params: TDWParams; var Result: string);
-    procedure DWServerEventsEventsReverseStringReplyEvent(var Params: TDWParams; var Result: string);
+    procedure DWServerEventsEventsEcoReplyEvent(var Params: TDWParams; var Result: string);
     procedure DWServerEventsEventsSomaReplyEvent(var Params: TDWParams; var Result: string);
     procedure DWServerEventsEventsUsuarioReplyEventByType(var Params: TDWParams; var Result: string; const RequestType: TRequestType; var StatusCode: Integer; RequestHeader: TStringList);
   private
@@ -33,49 +30,17 @@ implementation
 
 {$R *.dfm}
 
-procedure TdmServerMethodDataModule.DWServerEventsEventsHelloWorldReplyEvent(var Params: TDWParams; var Result: string);
+procedure TdmServerMethodDataModule.DWServerEventsEventsEcoReplyEvent(var Params: TDWParams; var Result: string);
 var
-  objeto: TJSONObject;
-begin
-  objeto := TJSONObject.Create;
-  objeto.AddPair(TJSONPair.Create('result', 'Hello World'));
-  Result := objeto.ToString;
-end;
-
-procedure TdmServerMethodDataModule.DWServerEventsEventsServerTimeReplyEvent(var Params: TDWParams; var Result: string);
-var
-  objeto: TJSONObject;
-begin
-  objeto := TJSONObject.Create;
-  objeto.AddPair(TJSONPair.Create('result', FormatDateTime('dd-mm-yyyy hh:mm:ss', Now)));
-  Result := objeto.ToString;
-end;
-
-procedure TdmServerMethodDataModule.DWServerEventsEventsEchoStringReplyEvent(var Params: TDWParams; var Result: string);
-var
-  objeto: TJSONObject;
   value: string;
+  objeto: TJSONObject;
 begin
   value := '';
-  if (Assigned(Params.ItemsString['string'])) then
-    value := Params.ItemsString['string'].Asstring;
+  if (Assigned(Params.ItemsString['value'])) then
+    value := Params.ItemsString['value'].Asstring;
 
   objeto := TJSONObject.Create;
   objeto.AddPair(TJSONPair.Create('result', value));
-  Result := objeto.ToString;
-end;
-
-procedure TdmServerMethodDataModule.DWServerEventsEventsReverseStringReplyEvent(var Params: TDWParams; var Result: string);
-var
-  objeto: TJSONObject;
-  value: string;
-begin
-  value := '';
-  if (Assigned(Params.ItemsString['string'])) then
-    value := Params.ItemsString['string'].Asstring;
-
-  objeto := TJSONObject.Create;
-  objeto.AddPair(TJSONPair.Create('result', System.StrUtils.ReverseString(value)));
   Result := objeto.ToString;
 end;
 
@@ -143,16 +108,23 @@ function TdmServerMethodDataModule.UsuarioPost(var Params: TDWParams): string;
 var
   dados: TJSONObject;
   objeto: TJSONObject;
+  usuario: string;
+  senha: string;
 begin
   if (Assigned(Params.ItemsString['Undefined'])) then
   begin
     dados := TJSONObject.ParseJSONValue(Params.ItemsString['Undefined'].AsString) as TJSONObject;
     objeto := TJSONObject.Create;
+
+    usuario := '';
     if (not dados.GetValue('nome').Null) then
-      objeto.AddPair(TJSONPair.Create('nome', dados.GetValue('nome').value));
+      usuario := dados.GetValue('nome').value;
+
+    senha := '';
     if (not dados.GetValue('senha').Null) then
-      objeto.AddPair(TJSONPair.Create('senha', dados.GetValue('senha').value));
-    objeto.AddPair(TJSONPair.Create('mensagem', 'Usuário criado com sucesso'));
+      senha := dados.GetValue('senha').value;
+
+    objeto.AddPair(TJSONPair.Create('mensagem', 'Usuário ' + usuario + ' com a senha ' + senha + ', foi criado com sucesso'));
     Result := objeto.ToString;
   end
   else
@@ -165,16 +137,23 @@ function TdmServerMethodDataModule.UsuarioPut(var Params: TDWParams): string;
 var
   dados: TJSONObject;
   objeto: TJSONObject;
+  usuario: string;
+  senha: string;
 begin
   if (Assigned(Params.ItemsString['Undefined'])) then
   begin
     dados := TJSONObject.ParseJSONValue(Params.ItemsString['Undefined'].AsString) as TJSONObject;
     objeto := TJSONObject.Create;
+
+    usuario := '';
     if (not dados.GetValue('nome').Null) then
-      objeto.AddPair(TJSONPair.Create('nome', dados.GetValue('nome').value));
+      usuario := dados.GetValue('nome').value;
+
+    senha := '';
     if (not dados.GetValue('senha').Null) then
-      objeto.AddPair(TJSONPair.Create('senha', dados.GetValue('senha').value));
-    objeto.AddPair(TJSONPair.Create('mensagem', 'Usuário atualizado com sucesso'));
+      senha := dados.GetValue('senha').value;
+
+    objeto.AddPair(TJSONPair.Create('mensagem', 'Usuário ' + usuario + ' com a senha ' + senha + ', foi atualizado com sucesso'));
     Result := objeto.ToString;
   end
   else

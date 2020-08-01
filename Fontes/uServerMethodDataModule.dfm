@@ -1,55 +1,29 @@
 object dmServerMethodDataModule: TdmServerMethodDataModule
   OldCreateOrder = False
   Encoding = esUtf8
-  Height = 150
-  Width = 215
+  Height = 72
+  Width = 108
   object DWServerEvents: TDWServerEvents
     IgnoreInvalidParams = False
     Events = <
       item
         Routes = [crGet]
-        DWParams = <>
-        JsonMode = jmPureJSON
-        Name = 'HelloWorld'
-        OnReplyEvent = DWServerEventsEventsHelloWorldReplyEvent
-      end
-      item
-        Routes = [crGet]
-        DWParams = <>
-        JsonMode = jmPureJSON
-        Name = 'ServerTime'
-        OnReplyEvent = DWServerEventsEventsServerTimeReplyEvent
-      end
-      item
-        Routes = [crGet]
+        NeedAuthorization = True
         DWParams = <
           item
             TypeObject = toParam
             ObjectDirection = odIN
             ObjectValue = ovString
-            ParamName = 'string'
+            ParamName = 'value'
             Encoded = False
           end>
         JsonMode = jmPureJSON
-        Name = 'EchoString'
-        OnReplyEvent = DWServerEventsEventsEchoStringReplyEvent
+        Name = 'Eco'
+        OnReplyEvent = DWServerEventsEventsEcoReplyEvent
       end
       item
         Routes = [crGet]
-        DWParams = <
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'string'
-            Encoded = False
-          end>
-        JsonMode = jmPureJSON
-        Name = 'ReverseString'
-        OnReplyEvent = DWServerEventsEventsReverseStringReplyEvent
-      end
-      item
-        Routes = [crGet]
+        NeedAuthorization = True
         DWParams = <
           item
             TypeObject = toParam
@@ -71,6 +45,7 @@ object dmServerMethodDataModule: TdmServerMethodDataModule
       end
       item
         Routes = [crGet, crPost, crPut, crDelete]
+        NeedAuthorization = True
         DWParams = <
           item
             TypeObject = toParam
@@ -83,7 +58,7 @@ object dmServerMethodDataModule: TdmServerMethodDataModule
         Name = 'Usuario'
         OnReplyEventByType = DWServerEventsEventsUsuarioReplyEventByType
       end>
-    Left = 88
-    Top = 48
+    Left = 36
+    Top = 13
   end
 end

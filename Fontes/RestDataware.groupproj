@@ -3,7 +3,10 @@
         <ProjectGuid>{9569E05F-D6EE-4230-814C-E848F33B7887}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="RestDatawareServer.dproj">
+        <Projects Include="Aplicacao.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ISAPI.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -14,23 +17,32 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="RestDatawareServer">
-        <MSBuild Projects="RestDatawareServer.dproj"/>
+    <Target Name="Aplicacao">
+        <MSBuild Projects="Aplicacao.dproj"/>
     </Target>
-    <Target Name="RestDatawareServer:Clean">
-        <MSBuild Projects="RestDatawareServer.dproj" Targets="Clean"/>
+    <Target Name="Aplicacao:Clean">
+        <MSBuild Projects="Aplicacao.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="RestDatawareServer:Make">
-        <MSBuild Projects="RestDatawareServer.dproj" Targets="Make"/>
+    <Target Name="Aplicacao:Make">
+        <MSBuild Projects="Aplicacao.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ISAPI">
+        <MSBuild Projects="ISAPI.dproj"/>
+    </Target>
+    <Target Name="ISAPI:Clean">
+        <MSBuild Projects="ISAPI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ISAPI:Make">
+        <MSBuild Projects="ISAPI.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="RestDatawareServer"/>
+        <CallTarget Targets="Aplicacao;ISAPI"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RestDatawareServer:Clean"/>
+        <CallTarget Targets="Aplicacao:Clean;ISAPI:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RestDatawareServer:Make"/>
+        <CallTarget Targets="Aplicacao:Make;ISAPI:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "f2f42670-7879-4311-bf48-d972b09b4b7a",
-		"name": "RestDatawareServer",
+		"_postman_id": "dc77c618-c3ff-4afe-9b71-4be0232310a7",
+		"name": "rest-dataware-server",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6aa80b14-dcb9-4f66-bc13-261361e296eb",
+						"id": "78bd04c1-59fa-40d7-a982-c342123bc57e",
 						"exec": [
 							""
 						],
@@ -23,12 +23,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8085/",
-					"protocol": "http",
+					"raw": "{{url}}/",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8085",
 					"path": [
 						""
 					]
@@ -37,12 +35,12 @@
 			"response": []
 		},
 		{
-			"name": "HelloWorld",
+			"name": "Eco",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "691ec016-36ff-4d80-bbd3-f44125aa09d9",
+						"id": "5874cc85-8a9e-46be-94e6-c564a3b1ce2e",
 						"exec": [
 							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
 							"\r",
@@ -63,145 +61,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8085/HelloWorld",
-					"protocol": "http",
+					"raw": "{{url}}/Eco?value=Gleryston Matos",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8085",
 					"path": [
-						"HelloWorld"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ServerTime",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "9f7f9407-79a1-48f9-9cd4-1aa4e8fb6e36",
-						"exec": [
-							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
-							"\r",
-							"try { \r",
-							"    responseJSON = JSON.parse(responseBody); \r",
-							"    tests['resposta é um JSON válido'] = true;\r",
-							"}\r",
-							"catch (e) { \r",
-							"    responseJSON = {}; \r",
-							"    tests['resposta não é um JSON válido'] = false;\r",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8085/ServerTime",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"ServerTime"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "EchoString",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "237687b8-aca6-4409-b113-4a68de6136c5",
-						"exec": [
-							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
-							"\r",
-							"try { \r",
-							"    responseJSON = JSON.parse(responseBody); \r",
-							"    tests['resposta é um JSON válido'] = true;\r",
-							"}\r",
-							"catch (e) { \r",
-							"    responseJSON = {}; \r",
-							"    tests['resposta não é um JSON válido'] = false;\r",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8085/EchoString?string=Gleryston Matos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"EchoString"
+						"Eco"
 					],
 					"query": [
 						{
-							"key": "string",
+							"key": "value",
 							"value": "Gleryston Matos"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ReverseString",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "e857cb6d-7266-4732-a40a-277d463d8131",
-						"exec": [
-							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
-							"\r",
-							"try { \r",
-							"    responseJSON = JSON.parse(responseBody); \r",
-							"    tests['resposta é um JSON válido'] = true;\r",
-							"}\r",
-							"catch (e) { \r",
-							"    responseJSON = {}; \r",
-							"    tests['resposta não é um JSON válido'] = false;\r",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8085/ReverseString?string=GlerystonMatos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"ReverseString"
-					],
-					"query": [
-						{
-							"key": "string",
-							"value": "GlerystonMatos"
 						}
 					]
 				}
@@ -214,7 +84,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "eeb8a2ad-c488-4c77-b8ca-0d1056c248ba",
+						"id": "c3ae2701-f30b-4478-a64c-18bfab186304",
 						"exec": [
 							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
 							"\r",
@@ -235,12 +105,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8085/Soma?value01=10&value02=20",
-					"protocol": "http",
+					"raw": "{{url}}/Soma?value01=10&value02=20",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8085",
 					"path": [
 						"Soma"
 					],
@@ -264,7 +132,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fcf1f031-c3bb-4082-a5c5-49ff063e6a29",
+						"id": "9c8303fb-23d9-486d-8b37-1260126d63dc",
 						"exec": [
 							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
 							"\r",
@@ -285,12 +153,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8085/Usuario",
-					"protocol": "http",
+					"raw": "{{url}}/Usuario",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8085",
 					"path": [
 						"Usuario"
 					]
@@ -304,7 +170,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b53f631d-50c0-48eb-887c-50024f2710a6",
+						"id": "2d8a7f1e-25d5-4106-bcd0-5e6b91eb9d44",
 						"exec": [
 							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
 							"\r",
@@ -334,12 +200,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8085/Usuario",
-					"protocol": "http",
+					"raw": "{{url}}/Usuario",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8085",
 					"path": [
 						"Usuario"
 					]
@@ -353,7 +217,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8a24c057-8200-4ce2-a1e7-2b227d5b6de9",
+						"id": "92d3540c-515a-4454-a1f2-26106e981ee1",
 						"exec": [
 							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
 							"\r",
@@ -383,12 +247,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8085/Usuario",
-					"protocol": "http",
+					"raw": "{{url}}/Usuario",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8085",
 					"path": [
 						"Usuario"
 					]
@@ -402,7 +264,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bf984cc6-b820-4aa2-8d54-c2c4e61dee56",
+						"id": "443fa0eb-b3b8-4634-8e6b-c9a538ce0d7f",
 						"exec": [
 							"tests[\"status é igual a 200\"] = responseCode.code === 200;\r",
 							"\r",
@@ -423,12 +285,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8085/Usuario?nome=Gleryston",
-					"protocol": "http",
+					"raw": "{{url}}/Usuario?nome=Gleryston",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8085",
 					"path": [
 						"Usuario"
 					],
