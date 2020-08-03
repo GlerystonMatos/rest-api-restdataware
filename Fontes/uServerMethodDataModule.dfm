@@ -1,8 +1,8 @@
 object dmServerMethodDataModule: TdmServerMethodDataModule
   OldCreateOrder = False
   Encoding = esUtf8
-  Height = 72
-  Width = 108
+  Height = 76
+  Width = 112
   object DWServerEvents: TDWServerEvents
     IgnoreInvalidParams = False
     Events = <
@@ -58,7 +58,7 @@ object dmServerMethodDataModule: TdmServerMethodDataModule
         Name = 'Usuario'
         OnReplyEventByType = DWServerEventsEventsUsuarioReplyEventByType
       end>
-    Left = 36
-    Top = 13
+    Left = 41
+    Top = 16
   end
 end

@@ -8,8 +8,8 @@ object frmWbCGIService: TfrmWbCGIService
       PathInfo = '/'
       OnAction = frmWbCGIServiceDefaultHandlerAction
     end>
-  Height = 244
-  Width = 347
+  Height = 76
+  Width = 112
   object RESTServiceCGI: TRESTServiceCGI
     CORS = False
     CORS_CustomHeaders.Strings = (
@@ -27,7 +27,7 @@ object frmWbCGIService: TfrmWbCGIService
     RootPath = '.\'
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    Left = 152
-    Top = 96
+    Left = 41
+    Top = 16
   end
 end

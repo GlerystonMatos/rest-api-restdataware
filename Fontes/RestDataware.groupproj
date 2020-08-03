@@ -9,6 +9,9 @@
         <Projects Include="ISAPI.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Console.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="ISAPI:Make">
         <MSBuild Projects="ISAPI.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Console">
+        <MSBuild Projects="Console.dproj"/>
+    </Target>
+    <Target Name="Console:Clean">
+        <MSBuild Projects="Console.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Console:Make">
+        <MSBuild Projects="Console.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Aplicacao;ISAPI"/>
+        <CallTarget Targets="Aplicacao;ISAPI;Console"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Aplicacao:Clean;ISAPI:Clean"/>
+        <CallTarget Targets="Aplicacao:Clean;ISAPI:Clean;Console:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Aplicacao:Make;ISAPI:Make"/>
+        <CallTarget Targets="Aplicacao:Make;ISAPI:Make;Console:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
