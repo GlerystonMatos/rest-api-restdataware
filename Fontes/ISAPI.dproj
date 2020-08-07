@@ -124,7 +124,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Release\ISAPI.dll" Configuration="Release" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\ISAPI.dll" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>ISAPI.dll</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -145,7 +145,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\ISAPI.dll" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Release\ISAPI.dll" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>ISAPI.dll</RemoteName>
                         <Overwrite>true</Overwrite>
